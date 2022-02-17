@@ -14,7 +14,7 @@ export const Ticket = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { tid } = useParams();
-  
+
   const { ticket, isLoading, token, deleting } = useSelector((state) => ({
     ticket: state.ticket.ticket,
     isLoading: state.ticket.isLoading,
@@ -51,7 +51,7 @@ export const Ticket = () => {
     //dispatch(ticketActions.updateClosedTicket(closed,tid,message))
   };
 
-  //const repliedTicketHandler = () => 
+  //const repliedTicketHandler = () =>
   //dispatch(ticketActions.updateTicket({}, tid,token))
 
   const closedTicketHandler = () =>
@@ -81,7 +81,7 @@ export const Ticket = () => {
               <Button onClick={closedTicketHandler} variant="dark">
                 Schließen Sie die Tickets ein
               </Button>
-            )}          
+            )}
             <Button onClick={deleteTicketHandler} variant="danger">
               Delete
             </Button>
@@ -89,14 +89,16 @@ export const Ticket = () => {
         </Row>
         <Row className="mt-4">
           <Col>
-            {ticket.conversations.map((conv, i) => (
-              <MessageHistory
-                key={i}
-                sender={conv.sender}
-                message={conv.message}
-                createdAt={conv.createdAt}
-              />
-            ))}
+            {ticket &&
+              ticket.conversations &&
+              ticket.conversations.map((conv, i) => (
+                <MessageHistory
+                  key={i}
+                  sender={conv.sender}
+                  message={conv.message}
+                  createdAt={conv.createdAt}
+                />
+              ))}
           </Col>
         </Row>
         <hr />
