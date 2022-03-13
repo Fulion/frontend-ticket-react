@@ -116,3 +116,5 @@ export const Ticket = () => {
     </div>
   );
 };
+
+export default Ticket;
