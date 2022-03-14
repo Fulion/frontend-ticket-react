@@ -1,8 +1,7 @@
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import fetchMock from 'fetch-mock';
-import {authActions, ticketActions} from '../../../src/_redux-store/actions'
-import {actionTypes} from "../../_redux-store/actionTypes";
+import {authActions, ticketActions} from '../../_redux-store/actions'
 import {initialState, initialTicketState} from "../../_redux-store/reducers";
 
 
@@ -14,10 +13,10 @@ describe('Action tests', () => {
     afterEach(() => fetchMock.restore());
 
     test('loginRequest', () => {
-        fetchMock.getOnce(usageDataEndpointMatcher, {
-            email: "somemail@something.com",
-            password: "password",
-        });
+    //     fetchMock.getOnce(usageDataEndpointMatcher, {
+    //         email: "somemail@something.com",
+    //         password: "password",
+    //     });
 
         const store = mockStore( {
             loginRequest: initialState,
